@@ -1,5 +1,11 @@
 import streamlit as st
 import pandas as pd
+import pickle
+
+# Load the model
+with open("model.pkl", "rb") as file:
+    model = pickle.load(file)
+    
 
 st.title("🚗 Road Accident Risk Prediction")
 

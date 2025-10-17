@@ -10,45 +10,44 @@ After evaluating multiple models, the final model was developed using XGBoost, w
 
 
 
-**### 🧩 Dataset**
+### 🧩 Dataset
 
-**- \*\*Train file:\*\* train.csv**  
+- Train file: train.csv 
 
-**- \*\*Test file:\*\* test.csv**  
+- Test file: test.csv  
 
-**- \*\*Target variable:\*\* accident\_risk**  
+- Target variable: accident_risk  
 
-**- \*\*Features:\*\* weather, lighting, curvature , speed\_limit, etc.**
-
-
-
-**### ⚙️ Steps**
-
-**1. Data Cleaning and Preprocessing**  
-
-**2. Feature Encoding and Scaling**  
-
-**3. Model Training (Linear, Decision Tree, Random Forest,XGBoost)**  
-
-**4. Hyperparameter Tuning with RandomizedSearchCV**  
-
-**5. Model Evaluation (RMSE)**
+- Features: weather, lighting, curvature , speed_limit, etc.
 
 
+### ⚙️ Steps
 
-**### 🧮 Best Model**
+1. Data Cleaning and Preprocessing 
 
-**- \*\*Algorithm:\*\* XGBoost**  
+2. Feature Encoding and Scaling  
 
-**- \*\*Evaluation Metric:\*\* RMSE**  
+3. Model Training (Linear, Decision Tree, Random Forest,XGBoost)  
 
-**- \*\*Important Features:\*\* curvature, Lighting, Weather, Speed Limit**
+4. Hyperparameter Tuning with RandomizedSearchCV  
+
+5. Model Evaluation (RMSE)
 
 
 
-**### 🛠️ Tools**
+### 🧮 Best Model
 
-**Python, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn,XGBoost**
+- Algorithm: XGBoost  
+
+- Evaluation Metric: RMSE  
+
+- Important Features: curvature, Lighting, Weather, Speed Limit
+
+
+
+### 🛠️ Tools
+
+Python, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn,XGBoost
 
 
 
@@ -57,5 +56,6 @@ After evaluating multiple models, the final model was developed using XGBoost, w
 **\*\*Aneesha Anto\*\***  
 
 **\[Kaggle](https://www.kaggle.com/aneevinay) · \[LinkedIn](https://www.linkedin.com/aneevinay) · \[GitHub](https://github.com/aneevinay)**
+
 
 

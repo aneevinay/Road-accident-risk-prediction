@@ -1,12 +1,12 @@
-**# Road Accident Risk Prediction 🚗💥**
+# Road Accident Risk Prediction 🚗💥
 
 
 
-**### 📘 Overview**
+### 📘 Overview
 
-**This project predicts the likelihood of road accidents using various machine learning algorithms including \*\*Linear Regression\*\*, \*\*Decision Tree Regressor\*\*, \*\*Random Forest Regressor\*\*, and \*\*XGBoost\*\*.**  
+This project predicts the likelihood of road accidents using various machine learning algorithms including Linear Regression, Decision Tree Regressor, Random Forest Regressor, and XGBoost.
 
-**After evaluating multiple models, the \*\*final model\*\* was developed using \*\*XGBoost\*\*, with \*\*hyperparameter tuning performed through RandomizedSearchCV\*\* to optimize performance.**
+After evaluating multiple models, the final model was developed using XGBoost, with hyperparameter tuning performed through RandomizedSearchCV to optimize performance.
 
 
 
@@ -57,4 +57,5 @@
 **\*\*Aneesha Anto\*\***  
 
 **\[Kaggle](https://www.kaggle.com/aneevinay) · \[LinkedIn](https://www.linkedin.com/aneevinay) · \[GitHub](https://github.com/aneevinay)**
+
 

@@ -4,9 +4,7 @@
 
 ### 📘 Overview
 
-This project predicts the likelihood of road accidents using various machine learning algorithms including Linear Regression, Decision Tree Regressor, Random Forest Regressor, and XGBoost.
-
-After evaluating multiple models, the final model was developed using XGBoost, with hyperparameter tuning performed through RandomizedSearchCV to optimize performance.
+This project predicts the likelihood of road accidents risk using machine learning algorithm XGBoost with hyperparameter tuning performed through optuna to optimize performance.
 
 
 
@@ -27,35 +25,23 @@ After evaluating multiple models, the final model was developed using XGBoost, w
 
 2. Feature Encoding and Scaling  
 
-3. Model Training (Linear, Decision Tree, Random Forest,XGBoost)  
+3. Model Training (XGBoost)  
 
-4. Hyperparameter Tuning with RandomizedSearchCV  
+4. Hyperparameter Tuning with Optuna  
 
 5. Model Evaluation (RMSE)
 
 
-
-### 🧮 Best Model
-
-- Algorithm: XGBoost  
-
-- Evaluation Metric: RMSE  
-
-- Important Features: curvature, Lighting, Weather, Speed Limit
-
-
-
 ### 🛠️ Tools
 
-Python, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn,XGBoost
-
-
+Python, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, XGBoost, Optuna 
 
 **### 👩‍💻 Author**
 
 **\*\*Aneesha Anto\*\***  
 
 **\[Kaggle](https://www.kaggle.com/aneevinay) · \[LinkedIn](https://www.linkedin.com/aneevinay) · \[GitHub](https://github.com/aneevinay)**
+
 
 
 

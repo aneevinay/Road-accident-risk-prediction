@@ -60,6 +60,8 @@ input_numeric = input_df.drop(columns=cat_cols)
 input_encoded = pd.concat([input_numeric.reset_index(drop=True),
                         encoded.reset_index(drop=True)], axis=1)
 
+input_encoded = input_encoded.reindex(columns=encoder_columns, fill_value=0)
+
 input_scaled = scaler.transform(input_encoded)
 
 y_pred = model.predict(input_scaled)

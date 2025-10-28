@@ -50,16 +50,16 @@ st.write({
 input_df = pd.DataFrame([{
     "road_type": road_type,
     "num_lanes": num_lanes,
+    "curvature": curvature,
     "speed_limit": speed_limit,
     "lighting": lighting,
     "weather": weather,
     "road_signs_present": road_signs_present,
     "public_road": public_road,
+    "time_of_day": time_of_day,
     "holiday": holiday,
     "school_season": school_season,
-    "num_reported_accidents": num_reported_accidents,
-    "time_of_day": time_of_day,
-    "curvature": curvature
+    "num_reported_accidents": num_reported_accidents
 }])
 
 expected_cols = encoder.feature_names_in_ if hasattr(encoder, 'feature_names_in_') else input_data.columns

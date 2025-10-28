@@ -64,7 +64,7 @@ input_df = pd.DataFrame([{
 
 expected_cols = encoder.feature_names_in_ if hasattr(encoder, 'feature_names_in_') else input_data.columns
 
-encoded_data = encoder.transform(input_data)
+encoded_data = encoder.transform(input_df)
 
 if not isinstance(encoded_data, pd.DataFrame):
     encoded_data = pd.DataFrame(encoded_data, columns=encoder.get_feature_names_out(expected_cols))

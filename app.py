@@ -48,15 +48,12 @@ input_df = pd.DataFrame([{
 }])
 
 cat_cols = ['road_type', 'lighting', 'weather', 'time_of_day']
-encoded_array = encoder.transform(input_df[cat_cols])
-encoded = pd.DataFrame(
-    encoded_array,
-     columns=[f"encoded_{j}" for j in range(encoded_array.shape[1])]
-)
-input_numeric = input_df.drop(columns=cat_cols).reset_index(drop=True)
-input_encoded = pd.concat([input_numeric, encoded], axis=1)
+encoded_data = encoder.transform(input_df[cat_cols]).toarray()
+encoded = pd.DataFrame(encoded_data, columns=encoder.get_feature_names_out(cat_cols))
 
-input_encoded = input_encoded.reindex(columns=encoder_columns, fill_value=0)
+input_numeric = input_df.drop(columns=cat_cols)
+input_encoded = pd.concat([input_numeric.reset_index(drop=True),
+                        encoded.reset_index(drop=True)], axis=1)
 
 input_scaled = scaler.transform(input_encoded)
 

@@ -51,7 +51,7 @@ cat_cols = ['road_type', 'lighting', 'weather', 'time_of_day']
 encoded_array = encoder.transform(input_df[cat_cols])
 encoded = pd.DataFrame(
     encoded_array,
-    columns=[f"{col}_{i}" for col in range(encoded_array.shape[1])]
+     columns=[f"encoded_{j}" for j in range(encoded_array.shape[1])]
 )
 input_numeric = input_df.drop(columns=cat_cols).reset_index(drop=True)
 input_encoded = pd.concat([input_numeric, encoded], axis=1)

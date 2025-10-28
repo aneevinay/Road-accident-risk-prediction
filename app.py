@@ -62,9 +62,13 @@ input_df = pd.DataFrame([{
     "curvature": curvature
 }])
 
-if st.button("Predict Accident Risk"):
-    try:
-        prediction = model.predict(input_df)[0]
-        st.success(f"🚧 Predicted Accident Risk: **{prediction:.4f}**")
-    except Exception as e:
-        st.error(f"Prediction failed: {e}")
+expected_cols = encoder.feature_names_in_ if hasattr(encoder, 'feature_names_in_') else input_data.columns
+
+encoded_data = encoder.transform(input_data)
+
+if not isinstance(encoded_data, pd.DataFrame):
+    encoded_data = pd.DataFrame(encoded_data, columns=encoder.get_feature_names_out(expected_cols))
+
+y_pred = model.predict(encoded_data)
+
+st.success(f"Predicted accident risk: {y_pred[0]:.4f}")

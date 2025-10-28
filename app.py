@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 
+encoder = joblib.load("encoder.pkl")
 model = joblib.load("model.pkl")
     
 st.title("🚗 Road Accident Risk Prediction")

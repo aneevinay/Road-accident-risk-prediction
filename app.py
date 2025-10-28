@@ -1,10 +1,12 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 import joblib
 
 encoder = joblib.load("encoder.pkl")
 model = joblib.load("model.pkl")
 expected_cols = joblib.load("encoder_columns.pkl")
+scaler = joblib.load("scaler.pkl")
     
 st.title("🚗 Road Accident Risk Prediction")
 
@@ -30,24 +32,6 @@ curvature = st.slider("Select road curvature",
                       help="Higher curvature means sharper turns."
                      )
 
-
-# Display user input
-st.write("### Input Summary")
-st.write({
-    "Road Type": road_type,
-    "Speed Limit": speed_limit,
-    "Weather": weather,
-    "Lighting": lighting,
-    "Number of Lanes": num_lanes,
-    "Road Signs Present": road_signs_present,
-    "Public Road": public_road,
-    "Holiday": holiday,
-    "School Season": school_season,
-    "Reported Accidents": num_reported_accidents,
-    "Time of Day": time_of_day,
-    "Curvature": curvature
-})
-
 input_df = pd.DataFrame([{
     "road_type": road_type,
     "num_lanes": num_lanes,
@@ -63,16 +47,18 @@ input_df = pd.DataFrame([{
     "num_reported_accidents": num_reported_accidents
 }])
 
-for col in expected_cols:
-    if col not in input_df.columns:
-        input_df[col] = 0  
-input_df = input_df[expected_cols] 
+cat_cols = ['road_type', 'lighting', 'weather', 'time_of_day']
+encoded = pd.DataFrame(
+    encoder.transform(input_df[cat_cols]).toarray(),
+    columns=encoder.get_feature_names_out(cat_cols)
+)
+input_numeric = input_df.drop(columns=cat_cols).reset_index(drop=True)
+input_encoded = pd.concat([input_numeric, encoded], axis=1)
 
-encoded_data = encoder.transform(input_df)
+input_encoded = input_encoded.reindex(columns=encoder_columns, fill_value=0)
 
-encoded_data = pd.DataFrame(encoded_data.toarray(), columns=encoder.get_feature_names_out(expected_cols))
+input_scaled = scaler.transform(input_encoded)
 
-y_pred = model.predict(encoded_data)
-st.success(f"Predicted accident risk: {y_pred[0]:.4f}")
+y_pred = model.predict(input_scaled)
+st.success(f"🚗 Predicted accident risk: {y_pred[0]:.4f}")
 
-st.success(f"Predicted accident risk: {y_pred[0]:.4f}")

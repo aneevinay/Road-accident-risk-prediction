@@ -4,6 +4,7 @@ import joblib
 
 encoder = joblib.load("encoder.pkl")
 model = joblib.load("model.pkl")
+expected_cols = joblib.load("encoder_columns.pkl")
     
 st.title("🚗 Road Accident Risk Prediction")
 
@@ -62,13 +63,16 @@ input_df = pd.DataFrame([{
     "num_reported_accidents": num_reported_accidents
 }])
 
-expected_cols = encoder.feature_names_in_ if hasattr(encoder, 'feature_names_in_') else input_data.columns
+for col in expected_cols:
+    if col not in input_df.columns:
+        input_df[col] = 0  
+input_df = input_df[expected_cols] 
 
 encoded_data = encoder.transform(input_df)
 
-if not isinstance(encoded_data, pd.DataFrame):
-    encoded_data = pd.DataFrame(encoded_data, columns=encoder.get_feature_names_out(expected_cols))
+encoded_data = pd.DataFrame(encoded_data.toarray(), columns=encoder.get_feature_names_out(expected_cols))
 
 y_pred = model.predict(encoded_data)
+st.success(f"Predicted accident risk: {y_pred[0]:.4f}")
 
 st.success(f"Predicted accident risk: {y_pred[0]:.4f}")
